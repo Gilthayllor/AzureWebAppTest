@@ -17,5 +17,11 @@ namespace AzureWebAppTest.Controllers
         {
             return Ok(DateTime.UtcNow);
         }
+        
+        [HttpGet("[action]")]
+        public IActionResult GetOwner([FromServices] IConfiguration configuration)
+        {
+            return Ok(configuration.GetValue<string>("Owner"));
+        }
     }
 }
